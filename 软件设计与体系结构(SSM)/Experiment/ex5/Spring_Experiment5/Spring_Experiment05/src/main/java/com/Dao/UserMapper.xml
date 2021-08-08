@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.Dao.UserMapper">
+  <cache></cache>
+
+  <!-- 1 查询all -->
+  <select id = "queryAll" resultType="com.Bean.User">
+    select * from Spring.Users
+  </select>
+
+  <!-- 2 id查询 -->
+  <select id = "queryById" resultType="com.Bean.User">
+    select * from Spring.Users where uid = #{uid}
+  </select>
+
+  <!-- 3 姓名、密码查询 -->
+  <select id = "queryValidate" resultType="com.Bean.User">
+    select * from Spring.Users where uname = #{uname} and pwd = #{pwd}
+  </select>
+
+</mapper>
