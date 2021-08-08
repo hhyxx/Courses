@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="myUserDaoImpl2" class="com.qst.dao.UserDaoImpl2">
+		<property name="myStrs">
+			<array>
+				<value>1111</value>
+				<value>2222</value>
+			</array>
+		</property>
+		<property name="myList">
+			<list>
+				<value>3333</value>
+				<value>4444</value>
+			</list>
+		</property>
+		<property name="myMap">
+			<map>
+				<entry key="ka" value="va"></entry>
+				<entry key="kb" value="vb"></entry>				
+			</map>
+		</property>
+		<property name="myProps">
+			<props>
+				<prop key="kc">vc</prop>
+				<prop key="kd">vd</prop>				
+			</props>
+		</property>
+	</bean>
+
+</beans>
+
+
+
+
+
+
+
+

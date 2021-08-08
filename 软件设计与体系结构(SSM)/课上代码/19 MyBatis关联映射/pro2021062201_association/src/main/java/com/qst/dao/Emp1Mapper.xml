@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.qst.dao.Emp1Mapper">
+	
+	<resultMap type="com.qst.bean.Emp1" id="emp1ResultMapper">
+		<result column="empno" property="empno" />	
+		<result column="ename" property="ename" />	
+		<result column="job" property="job" />
+		<association property="dept" javaType="com.qst.bean.Dept1" 
+			column="deptno"
+			select="com.qst.dao.Dept1Mapper.queryDept1ById">	
+		</association>						
+	</resultMap>
+	<select id="queryEmp1ById" resultMap="emp1ResultMapper" >
+		select empno, ename, job, e.deptno,d.deptno, dname, loc
+		from emp e, dept d
+		where e.deptno=d.deptno and empno=#{empno}
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+

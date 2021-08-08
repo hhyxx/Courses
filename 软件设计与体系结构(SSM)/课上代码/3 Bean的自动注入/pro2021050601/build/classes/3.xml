@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 构造器注入 -->
+	<bean id="myUser1" class="com.qst.bean.User">
+		<constructor-arg name="id" value="3"></constructor-arg>
+		<constructor-arg name="name" value="cgs"></constructor-arg>
+		<constructor-arg name="pwd" value="123"></constructor-arg>
+		<constructor-arg name="email" value="52605560@qq.com"></constructor-arg>
+		<constructor-arg name="money" value="1000"></constructor-arg>
+	</bean>	
+
+	<!-- 属性注入，主流，推荐 -->
+	<bean id="myUser2" class="com.qst.bean.User">
+		<property name="id" value="4"></property>
+		<property name="money" value="1000"></property>
+	</bean>
+
+
+
+</beans>
+
+
+
+
+
+
+
+
