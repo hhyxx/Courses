@@ -1,0 +1,27 @@
+
+
+1. 创建仓库
+    svnadmin create /Users/zzz123/Documents/SVN/Server
+
+2. 配置用户权限
+    1）修改 svnserve.conf 
+        anon-access 改成 none。表示禁止匿名访问，需要帐号密码才能访问
+        修改 passwd。在 [users] 下面添加帐号和密码（这里我配置了两个用户）
+        SVNserve.conf 取消一下的注释
+            anon-access = read
+            auth-access = write
+            password-db = passwd
+            authz-db = authz
+    2）修改passwd 用户名 = 密码
+        创建两个用户
+        user1 = hyx1
+        user2 = hyx2
+    3）修改 authz
+        创建group ，包含用户 hyx1 和 hyx2
+        设置权限，group1 对所有资源都有读写权限
+        [/]
+        user1 = rw
+        user2 = rw
+3. 启动 svn 服务器
+    svnserve -d -r ~/Documents/SVN
+

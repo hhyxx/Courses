@@ -1,0 +1,337 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0064)http://www.cnblogs.com/dafozhang/archive/2012/06/28/2567769.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script async="" type="text/javascript" src="./SVN中trunk,branches,tags用法详解 - 大佛张 - 博客园_files/gpt.js"></script>
+
+<title>SVN中trunk,branches,tags用法详解 - 大佛张 - 博客园</title>
+<link type="text/css" rel="stylesheet" href="./SVN中trunk,branches,tags用法详解 - 大佛张 - 博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./SVN中trunk,branches,tags用法详解 - 大佛张 - 博客园_files/style.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/dafozhang/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/dafozhang/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/dafozhang/wlwmanifest.xml">
+<script src="./SVN中trunk,branches,tags用法详解 - 大佛张 - 博客园_files/jquery.js" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'dafozhang', cb_enable_mathjax=false;</script>
+<script src="./SVN中trunk,branches,tags用法详解 - 大佛张 - 博客园_files/blog-common.js" type="text/javascript"></script>
+<script async="" type="text/javascript" src="./SVN中trunk,branches,tags用法详解 - 大佛张 - 博客园_files/pubads_impl_38.js"></script><script type="text/javascript" src="./SVN中trunk,branches,tags用法详解 - 大佛张 - 博客园_files/osd.js"></script></head>
+<body>
+<a name="top"></a>
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="http://www.cnblogs.com/dafozhang/"><img id="blogLogo" src="./SVN中trunk,branches,tags用法详解 - 大佛张 - 博客园_files/logo.png" alt="返回主页"></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/dafozhang/">大佛张@ 信息工程 研发市场创新共享</a></h1>
+<h2>信号处理/自动控制/电路设计/科学仪器/生命科学/VS2005/C++/C#/ASP.NET/MVC/MATLAB/LABVIEW/MEASUREMENTSTUDIO...</h2>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div style="display:none;"><img src="./SVN中trunk,branches,tags用法详解 - 大佛张 - 博客园_files/body.gif"></div>
+	<div id="navigator">
+		
+<!--done-->
+			<ul id="navList">
+				<li></li>
+				<li><a id="MyLinks1_SpaceLink" class="menu" href="http://space.cnblogs.com/">社区</a></li>
+				<li><a id="MyLinks1_MyHomeLink" class="menu" href="http://www.cnblogs.com/dafozhang/">首页</a></li>
+				<li><a id="MyLinks1_NewPostLink" class="menu" rel="nofollow" href="http://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+				<li><a id="MyLinks1_ContactLink" accesskey="9" class="menu" rel="nofollow" href="http://space.cnblogs.com/msg/send/%e5%a4%a7%e4%bd%9b%e5%bc%a0">联系</a></li>
+				<li><a id="MyLinks1_Admin" class="menu" rel="nofollow" href="http://i.cnblogs.com/">管理</a></li>
+				<li><a id="MyLinks1_Syndication" class="menu" href="http://www.cnblogs.com/dafozhang/rss">订阅</a>
+				<a id="MyLinks1_XMLLink" class="aHeaderXML" href="http://www.cnblogs.com/dafozhang/rss"><img src="./SVN中trunk,branches,tags用法详解 - 大佛张 - 博客园_files/xml.gif" alt="订阅"></a></li>
+			</ul>
+
+
+		<div class="blogStats">
+			
+			
+<!--done-->
+随笔- 27&nbsp;
+文章- 0&nbsp;
+评论- 5&nbsp;
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="topicList">
+	<div class="forFlow">
+		
+
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="./SVN中trunk,branches,tags用法详解 - 大佛张 - 博客园_files/SVN中trunk,branches,tags用法详解 - 大佛张 - 博客园.htm">SVN中trunk,branches,tags用法详解</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body"><h2 class="title content-title">&nbsp;</h2>
+<div id="content" class="content text-content clearfix">Subversion有一个很标准的目录结构，是这样的。<br>比如项目是proj，svn地址为svn://proj/，那么标准的svn布局是<br><br>svn://proj/|+-trunk+-branches+-tags<br>这是一个标准的布局，trunk为主开发目录，branches为分支开发目录，tags为tag存档目录（不允许修改）。但是具体这几个目录应该如何使用，svn并没有明确的规范，更多的还是用户自己的习惯。<br><br>对于这几个开发目录，一般的使用方法有两种。我更多的是从软件产品的角度出发（比如freebsd），因为互联网的开发模式是完全不一样的。 1.第一种方法，使用trunk作为主要的开发目录<br>一般的，我们的所有的开发都是基于trunk进行开发，当一个版本/release开发告一段落（开发、测试、文档、制作安装程序、打包等）结束后，代码处于冻结状态（人为规定，可以通过hook来进行管理）。此时应该基于当前冻结的代码库，打tag。当下一个版本/阶段的开发任务开始，继续在trunk进行开发。<br>此时，如果发现了上一个已发行版本（Released Version）有一些bug，或者一些很急迫的功能要求，而正在开发的版本（Developing Version）无法满足时间要求，这时候就需要在上一个版本上进行修改了。应该基于发行版对应的tag，做相应的分支（branch）进行开发。<br>例如，刚刚发布1.0，正在开发2.0，此时要在1.0的基础上进行bug修正。<br>按照时间的顺序<br><br>1.0开发完毕，代码冻结 <br>基于已经冻结的trunk，为release1.0打tag<br>此时的目录结构为<br>svn://proj/<br>+trunk/ (freeze)<br>+branches/<br>+tags/<br>+tag_release_1.0　(copy from trunk) <br>2.0开始开发，trunk此时为2.0的开发版 <br>发现1.0有bug，需要修改，基于1.0的tag做branch<br>此时的目录结构为<br>svn://proj/<br>+trunk/ ( dev 2.0 )<br>+branches/<br>+dev_1.0_bugfix (copy from tag/release_1.0)<br>+tags/<br>+release_1.0　(copy from trunk) <br>在1.0 bugfix branch进行1.0 bugfix开发，在trunk进行2.0开发 <br>在1.0 bugfix 完成之后，基于dev_1.0_bugfix的branch做release等 <br>根据需要选择性的把dev_1.0_bugfix这个分支merge回trunk（什么时候进行这步操作，要根据具体情况） <br>这是一种很标准的开发模式，很多的公司都是采用这种模式进行开发的。trunk永远是开发的主要目录。<br><br>2.第二种方法，在每一个release的branch中进行各自的开发，trunk只做发布使用。<br>这种开发模式当中，trunk是不承担具体开发任务的，一个版本/阶段的开发任务在开始的时候，根据已经release的版本做新的开发分支，并且基于这个分支进行开发。还是举上面的例子，这里面的时序关系是：<br><br>1.0开发，做dev1.0的branch<br>此时的目录结构<br>svn://proj/<br>+trunk/ (不担负开发任务 )<br>+branches/<br>+dev_1.0 (copy from trunk)<br>+tags/ <br>1.0开发完成，merge dev1.0到trunk<br>此时的目录结构<br>svn://proj/<br>+trunk/ (merge from branch dev_1.0)<br>+branches/<br>+dev_1.0 (开发任务结束，freeze)<br>+tags/ <br>根据trunk做1.0的tag<br>此时的目录结构<br>svn://proj/<br>+trunk/ (merge from branch dev_1.0)<br>+branches/<br>+dev_1.0 (开发任务结束，freeze)<br>+tags/<br>+tag_release_1.0 (copy from trunk) <br>1.0开发，做dev2.0分支<br>此时的目录结构<br>svn://proj/<br>+trunk/ <br>+branches/<br>+dev_1.0 (开发任务结束，freeze)<br>+dev_2.0 （进行2.0开发）<br>+tags/<br>+tag_release_1.0 (copy from trunk) <br>1.0有bug，直接在dev1.0的分支上修复 </div></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="blog_post_info"><div id="BlogPostCategory">分类: <a href="http://www.cnblogs.com/dafozhang/category/325445.html">8.0 SoftEngineer</a></div>
+<div id="EntryTag"></div>
+<div id="green_channel">
+绿色通道：
+<a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(cb_entryId,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+<a id="green_channel_follow" onclick="c_follow();" href="javascript:void(0);">关注我</a>
+<a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a><a id="green_channel_contact" href="http://space.cnblogs.com/msg/send/%e5%a4%a7%e4%bd%9b%e5%bc%a0" target="_blank">与我联系</a>
+<a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./SVN中trunk,branches,tags用法详解 - 大佛张 - 博客园_files/icon_weibo_24.png" alt=""></a>
+</div>
+<div id="digg_block">
+<div id="author_profile">
+<div id="author_profile_info" class="author_profile_info">
+<a href="http://home.cnblogs.com/u/dafozhang/" target="_blank"><img src="./SVN中trunk,branches,tags用法详解 - 大佛张 - 博客园_files/u336355.jpg" class="author_avatar" alt=""></a>
+<div id="author_profile_detail" class="author_profile_info">
+<a href="http://home.cnblogs.com/u/dafozhang/">大佛张</a><br>
+<a href="http://home.cnblogs.com/u/dafozhang/followees">关注 - 0</a><br>
+<a href="http://home.cnblogs.com/u/dafozhang/followers">粉丝 - 7</a>
+</div>
+</div>
+<div class="clear"></div>
+<div id="author_profile_honor"></div>
+<div id="author_profile_follow">
+<a href="javascript:void(0);" onclick="c_follow();return false;">+加关注</a>
+</div>
+</div>
+<div id="div_digg">										
+	<div class="diggit" onclick="votePost(cb_entryId,&#39;Digg&#39;)"> 
+		<span class="diggnum" id="digg_count">4</span>
+	</div>
+	<div class="buryit" onclick="votePost(cb_entryId,&#39;Bury&#39;)"> 
+		<span class="burynum" id="bury_count">2</span>
+	</div>
+	<div class="clear"></div>	
+	<div class="diggword" id="digg_tips">
+    (请您对文章做出评价)
+    </div>	
+</div>
+</div></div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="http://www.cnblogs.com/dafozhang/archive/2012/06/28/2567126.html" class="p_n_p_prefix">« </a> 上一篇：<a href="http://www.cnblogs.com/dafozhang/archive/2012/06/28/2567126.html" title="发布于2012-06-28 09:42">svn管理版本--过滤一些文件的设置</a><br><a href="http://www.cnblogs.com/dafozhang/archive/2012/08/17/2643694.html" class="p_n_p_prefix">» </a> 下一篇：<a href="http://www.cnblogs.com/dafozhang/archive/2012/08/17/2643694.html" title="发布于2012-08-17 11:09">UML图示</a><br></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date">2012-06-28 16:12</span> <a href="http://www.cnblogs.com/dafozhang/">大佛张</a> 阅读(<span id="post_view_count">16503</span>) 评论(<span id="post_comment_count">3</span>)  <a href="http://i.cnblogs.com/EditPosts.aspx?postid=2567769" rel="nofollow">编辑</a> <a href="http://www.cnblogs.com/dafozhang/archive/2012/06/28/2567769.html#" onclick="AddToWz(2567769);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,isLogined=false,cb_blogId=98182,cb_entryId=2567769,cb_blogApp=currentBlogApp,cb_blogUserGuid='d4b7641c-20e9-e011-8ee0-842b2b196315',cb_entryCreatedDate='2012/6/28 16:12:00';loadViewCount(cb_entryId);</script>
+	
+</div><!--end: topics 文章、评论容器-->
+<a name="!comments"></a><div id="blog-comments-placeholder"><div id="comments_pager_top"></div>
+<!--done-->
+<br>
+<div class="feedback_area_title">发表评论</div>
+<div class="feedbackNoItems"></div>
+	
+
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/dafozhang/archive/2012/06/28/2567769.html#2634405" class="layer">#1楼</a><a name="2634405" id="comment_anchor_2634405"></a> <span class="comment_date">2013-03-14 09:36</span> | <a id="a_comment_author_2634405" href="http://www.cnblogs.com/finalclassic/" target="_blank">Mr.Vincent</a> <a href="http://space.cnblogs.com/msg/send/Mr.Vincent" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2634405" class="blog_comment_body">发表之前检查过结构么？</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2634405,&#39;Digg&#39;,this)">支持(1)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2634405,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_2634405_avatar" style="display:none;">http://pic.cnitblog.com/face/263077/20130217133107.png</span><br>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/dafozhang/archive/2012/06/28/2567769.html#2674663" class="layer">#2楼</a><a name="2674663" id="comment_anchor_2674663"></a> <span class="comment_date">2013-05-07 12:24</span> | <a id="a_comment_author_2674663" href="http://www.cnblogs.com/soli/" target="_blank">Soli</a> <a href="http://space.cnblogs.com/msg/send/Soli" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2674663" class="blog_comment_body">排版真差。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2674663,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2674663,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_2674663_avatar" style="display:none;">http://pic.cnitblog.com/face/u1946.jpg</span><br>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="http://www.cnblogs.com/dafozhang/archive/2012/06/28/2567769.html#2877143" class="layer">#3楼</a><a name="2877143" id="comment_anchor_2877143"></a><span id="comment-maxId" style="display:none;">2877143</span><span id="comment-maxDate" style="display:none;">2014/2/17 20:06:44</span> <span class="comment_date">2014-02-17 20:06</span> | <a id="a_comment_author_2877143" href="http://www.cnblogs.com/custa/" target="_blank">龍蝦</a> <a href="http://space.cnblogs.com/msg/send/%e9%be%8d%e8%9d%a6" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2877143" class="blog_comment_body">为什么要先把dev1.0 merge 到 trunk，在打tags呢？<br>感觉merge到trunk这一步不需要啊。<br>请解答。谢谢！</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2877143,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2877143,&#39;Bury&#39;,this)">反对(0)</a></div><br>
+			</div>
+		</div>
+	<div id="comments_pager_bottom"></div></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" id="lnk_RefreshComments" onclick="return RefreshCommentList();">刷新评论</a><a href="http://www.cnblogs.com/dafozhang/archive/2012/06/28/2567769.html#" onclick="return RefreshPage();">刷新页面</a><a href="http://www.cnblogs.com/dafozhang/archive/2012/06/28/2567769.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="site_nav_under"><a href="http://www.cnblogs.com/" target="_blank" title="程序员的网上家园">博客园首页</a><a href="http://q.cnblogs.com/" target="_blank" title="程序员问答社区">博问</a><a href="http://news.cnblogs.com/" target="_blank" title="IT新闻">新闻</a><a href="http://home.cnblogs.com/ing/" target="_blank">闪存</a><a href="http://job.cnblogs.com/" target="_blank">程序员招聘</a><a href="http://kb.cnblogs.com/" target="_blank">知识库</a></div>
+<div id="ad_under_post_holder">
+
+<div id="google_ad_c1" class="c_ad_block">
+    <!-- cnblogs_blogpost_C1_sitehome -->
+    <div id="div-gpt-ad-1346480159711-0" style="width:300px; height:250px;">
+    
+    <div id="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0" name="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0" width="300" height="250" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" src="javascript:"<html><body style='background:transparent'></body></html>"" style="border: 0px; vertical-align: bottom;"></iframe></div><iframe id="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0__hidden__" name="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0__hidden__" width="0" height="0" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" src="javascript:"<html><body style='background:transparent'></body></html>"" style="border: 0px; vertical-align: bottom; visibility: hidden; display: none;"></iframe></div>
+</div>
+<div id="blog_news_kb"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="http://news.cnblogs.com/n/207298/" target="_blank">Twitter“禁售期”结束 股价跌至IPO以来新低</a><br> ·  <a href="http://news.cnblogs.com/n/207297/" target="_blank">沃尔玛电商战略见成效 去年销售额增幅超亚马逊</a><br> ·  <a href="http://news.cnblogs.com/n/207296/" target="_blank">为什么创业者专注做一个产品最好？</a><br> ·  <a href="http://news.cnblogs.com/n/207295/" target="_blank">京东回应刘强东机场冲突：正常交涉 双方已和解</a><br> ·  <a href="http://news.cnblogs.com/n/207294/" target="_blank">RSS没有死</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/128974/" target="_blank">年轻人，卷起袖子，来把手弄脏吧!</a><br> ·  <a href="http://kb.cnblogs.com/page/207086/" target="_blank">当随机不够随机：一个在线扑克游戏的教训</a><br> ·  <a href="http://kb.cnblogs.com/page/177108/" target="_blank">闭包漫谈（从抽象代数及函数式编程角度）</a><br> ·  <a href="http://kb.cnblogs.com/page/193450/" target="_blank">Facebook和Google如何激发工程师的创造力</a><br> ·  <a href="http://kb.cnblogs.com/page/192941/" target="_blank">好的程序员到底好在哪里？</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div></div>
+<script type="text/javascript">
+var enableGoogleAd = true;
+var googletag = googletag || {};
+googletag.cmd = googletag.cmd || [];
+fixPostBodyFormat();
+loadAdUnderPost();
+</script>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+loadBlogSignature();
+LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+</script>
+<script type="text/javascript">
+    $.ajax({ url: 'http://counter.cnblogs.com/blog/post/' + cb_entryId, type: 'get', dataType: 'script', cache: true });
+</script>
+</div>
+
+	</div><!--end: forFlow -->
+	</div><!--end: topicList 文章列表容器-->
+
+	<div id="sideBar" class="forFlow">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"><div id="profile_block">昵称：<a href="http://home.cnblogs.com/u/dafozhang/">大佛张</a><br>园龄：<a href="http://home.cnblogs.com/u/dafozhang/" title="入园时间：2011-09-27">2年7个月</a><br>粉丝：<a href="http://home.cnblogs.com/u/dafozhang/followers/">7</a><br>关注：<a href="http://home.cnblogs.com/u/dafozhang/followees/">0</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="cnblogs.UserManager.FollowBlogger(&#39;d4b7641c-20e9-e011-8ee0-842b2b196315&#39;)">+加关注</a></div></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="calendar"><div id="blog-calendar" style="display:none"></div><script type="text/javascript">loadBlogDefaultCalendar();</script></div>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn">
+
+<div class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+
+<div id="widget_my_google" class="div_my_zzk"><input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk"></div>
+</div>
+
+
+<div class="catListTag">
+<h3 class="catListTitle">我的标签</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/dafozhang/tag/ASP.NET%20%20MVC/">ASP.NET  MVC</a>(1)</li><li><a href="http://www.cnblogs.com/dafozhang/tag/ASP.NET%20MVC/">ASP.NET MVC</a>(1)</li>
+</ul>
+</div>
+<div class="catListPostCategory">
+<h3 class="catListTitle">随笔分类<span style="font-size:11px;font-weight:normal">(24)</span></h3>
+
+<ul>
+
+<li><a id="ctl02_CatList_LinkList_0_Link_0" href="http://www.cnblogs.com/dafozhang/category/340547.html">0.0 C#(19)</a> </li>
+
+<li><a id="ctl02_CatList_LinkList_0_Link_1" href="http://www.cnblogs.com/dafozhang/category/325448.html">1.0 VS2010@ASP.NETMVC(2)</a> </li>
+
+<li><a id="ctl02_CatList_LinkList_0_Link_2" href="http://www.cnblogs.com/dafozhang/category/325447.html">2.0 VS2005@C++</a> </li>
+
+<li><a id="ctl02_CatList_LinkList_0_Link_3" href="http://www.cnblogs.com/dafozhang/category/325449.html">3.0 USB2.0@CY68013</a> </li>
+
+<li><a id="ctl02_CatList_LinkList_0_Link_4" href="http://www.cnblogs.com/dafozhang/category/325452.html">4.0 DSP/ARM/MCU</a> </li>
+
+<li><a id="ctl02_CatList_LinkList_0_Link_5" href="http://www.cnblogs.com/dafozhang/category/325453.html">5.0 FPGA/CPLD</a> </li>
+
+<li><a id="ctl02_CatList_LinkList_0_Link_6" href="http://www.cnblogs.com/dafozhang/category/325454.html">6.0 LABVIEW/MStudio</a> </li>
+
+<li><a id="ctl02_CatList_LinkList_0_Link_7" href="http://www.cnblogs.com/dafozhang/category/325455.html">7.0 MATLAB</a> </li>
+
+<li><a id="ctl02_CatList_LinkList_0_Link_8" href="http://www.cnblogs.com/dafozhang/category/325445.html">8.0 SoftEngineer(2)</a> </li>
+
+<li><a id="ctl02_CatList_LinkList_0_Link_9" href="http://www.cnblogs.com/dafozhang/category/332419.html">9.0 DevExpress(1)</a> </li>
+
+<li><a id="ctl02_CatList_LinkList_0_Link_10" href="http://www.cnblogs.com/dafozhang/category/325451.html">生命科学仪器</a> </li>
+
+<li><a id="ctl02_CatList_LinkList_0_Link_11" href="http://www.cnblogs.com/dafozhang/category/325442.html">信息科学与工程</a> </li>
+
+<li><a id="ctl02_CatList_LinkList_0_Link_12" href="http://www.cnblogs.com/dafozhang/category/325444.html">自动控制技术</a> </li>
+
+</ul>
+
+</div>
+
+<div class="catListPostArchive">
+<h3 class="catListTitle">随笔档案<span style="font-size:11px;font-weight:normal">(27)</span></h3>
+
+<ul>
+
+<li><a id="ctl02_CatList_LinkList_1_Link_0" href="http://www.cnblogs.com/dafozhang/archive/2012/08.html">2012年8月 (1)</a> </li>
+
+<li><a id="ctl02_CatList_LinkList_1_Link_1" href="http://www.cnblogs.com/dafozhang/archive/2012/06.html">2012年6月 (2)</a> </li>
+
+<li><a id="ctl02_CatList_LinkList_1_Link_2" href="http://www.cnblogs.com/dafozhang/archive/2012/05.html">2012年5月 (1)</a> </li>
+
+<li><a id="ctl02_CatList_LinkList_1_Link_3" href="http://www.cnblogs.com/dafozhang/archive/2012/03.html">2012年3月 (1)</a> </li>
+
+<li><a id="ctl02_CatList_LinkList_1_Link_4" href="http://www.cnblogs.com/dafozhang/archive/2012/02.html">2012年2月 (2)</a> </li>
+
+<li><a id="ctl02_CatList_LinkList_1_Link_5" href="http://www.cnblogs.com/dafozhang/archive/2012/01.html">2012年1月 (9)</a> </li>
+
+<li><a id="ctl02_CatList_LinkList_1_Link_6" href="http://www.cnblogs.com/dafozhang/archive/2011/12.html">2011年12月 (8)</a> </li>
+
+<li><a id="ctl02_CatList_LinkList_1_Link_7" href="http://www.cnblogs.com/dafozhang/archive/2011/11.html">2011年11月 (1)</a> </li>
+
+<li><a id="ctl02_CatList_LinkList_1_Link_8" href="http://www.cnblogs.com/dafozhang/archive/2011/10.html">2011年10月 (2)</a> </li>
+
+</ul>
+
+</div>
+
+
+<div class="catListComment">
+<h3 class="catListTitle">最新评论<a id="_1b51b8a_RSSHyperlink1" title="RSS订阅最最新评论" href="http://www.cnblogs.com/dafozhang/CommentsRSS.aspx"><img title="RSS订阅最最新评论" src="./SVN中trunk,branches,tags用法详解 - 大佛张 - 博客园_files/xml.gif" alt=""></a></h3>
+
+	<div id="RecentCommentsBlock"><ul>
+    <li class="recent_comment_title"><a href="http://www.cnblogs.com/dafozhang/archive/2012/06/28/2567769.html#2877143">1. Re:SVN中trunk,branches,tags用法详解</a></li>
+    <li class="recent_comment_body">为什么要先把dev1.0 merge 到 trunk，在打tags呢？<br>感觉merge到trunk这一步不需要啊。<br>请解答。谢谢！</li>
+    <li class="recent_comment_author">--龍蝦</li>
+    <li class="recent_comment_title"><a href="http://www.cnblogs.com/dafozhang/archive/2012/06/28/2567769.html#2674663">2. Re:SVN中trunk,branches,tags用法详解</a></li>
+    <li class="recent_comment_body">排版真差。</li>
+    <li class="recent_comment_author">--Soli</li>
+</ul>
+</div>
+</div>
+
+<div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock"><ul><li><a href="./SVN中trunk,branches,tags用法详解 - 大佛张 - 博客园_files/SVN中trunk,branches,tags用法详解 - 大佛张 - 博客园.htm">1. SVN中trunk,branches,tags用法详解(16504)</a></li><li><a href="http://www.cnblogs.com/dafozhang/archive/2011/12/23/2299023.html">2. partial class 说明(2201)</a></li><li><a href="http://www.cnblogs.com/dafozhang/archive/2012/01/18/2325334.html">3. C#中MessageBox用法大全（附效果图）(1672)</a></li><li><a href="http://www.cnblogs.com/dafozhang/archive/2011/12/31/2308811.html">4. C# 子线程调用主线程窗体的解决方法(880)</a></li><li><a href="http://www.cnblogs.com/dafozhang/archive/2012/01/17/2324562.html">5. c#如何处理自定义消息(716)</a></li></ul></div>
+</div>
+
+<div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock"><ul><li><a href="./SVN中trunk,branches,tags用法详解 - 大佛张 - 博客园_files/SVN中trunk,branches,tags用法详解 - 大佛张 - 博客园.htm">1. SVN中trunk,branches,tags用法详解(3)</a></li><li><a href="http://www.cnblogs.com/dafozhang/archive/2011/12/23/2299023.html">2. partial class 说明(1)</a></li><li><a href="http://www.cnblogs.com/dafozhang/archive/2012/01/18/2325334.html">3. C#中MessageBox用法大全（附效果图）(1)</a></li><li><a href="http://www.cnblogs.com/dafozhang/archive/2012/01/18/2325264.html">4. C# string 转换 endpoint 类型(0)</a></li><li><a href="http://www.cnblogs.com/dafozhang/archive/2012/01/17/2324562.html">5. c#如何处理自定义消息(0)</a></li></ul></div>
+</div>
+</div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright ©2014 大佛张
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+<iframe id="google_osd_static_frame_4098901513498" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;"></iframe></body></html>
