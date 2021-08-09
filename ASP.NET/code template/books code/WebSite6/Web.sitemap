@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+    <siteMapNode url="~/Home.aspx" title="主页"  description="Home">
+        <siteMapNode url="~/PartOne.aspx" title="计算机类"  description="单击此链接转到计算机类" >
+             <siteMapNode url="~/PO1.aspx" title="应用类"  description="单击此链接转到应用类" />
+             <siteMapNode url="~/PO2.aspx" title="编程类"  description="单击此链接转到编程类" />
+        </siteMapNode>
+        <siteMapNode url="~/PartTwo.aspx" title="经济类"  description="单击此链接转到经济类" >
+        </siteMapNode>
+    </siteMapNode>
+</siteMap>
