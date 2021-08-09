@@ -1,0 +1,5 @@
+D:\Sites\WebSite8\WebSite8\bin\WebSite8.dll
+D:\Sites\WebSite8\WebSite8\bin\WebSite8.pdb
+D:\Sites\WebSite8\WebSite8\obj\Debug\WebSite8.csprojResolveAssemblyReference.cache
+D:\Sites\WebSite8\WebSite8\obj\Debug\WebSite8.dll
+D:\Sites\WebSite8\WebSite8\obj\Debug\WebSite8.pdb
