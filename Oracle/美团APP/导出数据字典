@@ -1,0 +1,15 @@
+SELECT
+	TABLE_SCHEMA AS '数据库名',
+	TABLE_NAME AS '表名',
+	COLUMN_NAME AS '字段名',
+	COLUMN_TYPE AS '数据类型',
+	CASE IFNULL(COLUMN_DEFAULT,'Null') 
+        WHEN '' THEN '空字符串' 
+        WHEN 'Null' THEN 'NULL' 
+        ELSE COLUMN_DEFAULT END  AS '默认值',
+    CASE IS_NULLABLE WHEN 'YES' THEN '是' ELSE '否' END AS '是否允许为空',
+    COLUMN_COMMENT AS '字段说明'
+FROM
+	information_schema.COLUMNS
+WHERE
+	TABLE_SCHEMA = '数据库名'

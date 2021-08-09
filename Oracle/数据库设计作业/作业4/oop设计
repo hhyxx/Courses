@@ -1,0 +1,51 @@
+Class 发光体{
+	属性:
+		名称
+		亮度
+		寿命
+	方法:
+		发光体声明方法，new 对象的时候调用的方法
+		set(parameter1,parameter2) 设置方法1，
+		set(parameter3,parameter4,parameter5) 设置方法2，设置不同的属性
+		get 方法
+}
+
+Class Sun extend 发光体{
+	属性:
+		半径
+
+	方法:
+		set(parameter r){} // 重载set方法
+} 
+
+Class 光 {
+	属性:
+		名称
+		是否可见
+		波长
+	方法:
+		光声明方法，new 对象的时候调用的方法
+		set(parameter1,parameter2) 设置方法1，
+		get 方法
+}
+
+Class 太阳光 extends 光{
+	属性:
+		反射颜色
+	方法:
+		set(parameter) // 重载set方法，设置反射光的颜色
+}
+Class 物体{
+	属性:
+		...
+	方法:
+		set(parameter)
+		get(parameter)
+}
+Class 墙壁 extends 物体{属性: ... 方法: ... }
+Class 地面 extends 物体{属性: ... 方法: ...}
+Class 影子 extends 光{属性: ... 方法: ...}
+
+
+
+
