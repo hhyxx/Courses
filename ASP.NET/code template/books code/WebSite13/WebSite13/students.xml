@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <student>
+    <no>1</no>
+    <name>段洋A</name>
+    <sex>男</sex>
+    <birth>1988-05-21</birth>
+    <address>北京</address>
+  </student>
+  <student>
+    <no>2</no>
+    <name>李为明A</name>
+    <sex>男</sex>
+    <birth>1982-05-01</birth>
+    <address>北京</address>
+  </student>
+</NewDataSet>

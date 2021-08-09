@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" standalone="yes" ?>
+<?xml-stylesheet type="text/css" href="StyleSheet.css"?>
+
+<!--下面存放的是学生信息-->
+<students>
+  <student>
+    <no>11</no>
+    <name>MM</name>
+    <sex>女</sex>
+    <birth>1989-6-01</birth>
+    <address telephone="010-82982222">北京</address>
+  </student>
+  <student>
+    <no>12</no>
+    <name>COCO</name>
+    <sex>女</sex>
+    <birth>1987-3-12</birth>
+    <address telephone="010-63944000">北京</address>
+  </student>
+</students>
