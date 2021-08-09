@@ -1,0 +1,25 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage1.master.cs" Inherits="WebSite10.MasterPage1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ScriptManager ID="ScriptManager1" runat="server" />
+        <asp:Button ID="IncrementButton" runat="server" Text="后一天" 
+            onclick="IncrementButton_Click" />
+        <asp:Button ID="DecrementButton" runat="server" Text="前一天" 
+            onclick="DecrementButton_Click" />
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
