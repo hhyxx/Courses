@@ -1,0 +1,673 @@
+
+Creating table DIM_REGION_AREA
+==============================
+
+
+create table STGS.DIM_REGION_AREA
+(
+  region_id       NUMBER not null,
+  region_src_id   NUMBER not null,
+  region_src_type VARCHAR2(10),
+  region_name     VARCHAR2(150),
+  region_name_alt VARCHAR2(50),
+  region_priority NUMBER
+)
+
+ORA-01031: insufficient privileges
+
+create unique index STGS.DIM_REGION_AREA_U1 on STGS.DIM_REGION_AREA (REGION_SRC_ID, REGION_SRC_TYPE)
+
+ORA-01031: insufficient privileges
+
+alter table STGS.DIM_REGION_AREA
+  add constraint DIM_REGION_AREA_PK primary key (REGION_ID)
+
+ORA-01031: insufficient privileges
+
+Creating table DIM_REGION_BRANCH
+================================
+
+
+create table STGS.DIM_REGION_BRANCH
+(
+  branch_id         NUMBER not null,
+  branch_src_id     NUMBER not null,
+  branch_src_type   VARCHAR2(10),
+  branch_name       VARCHAR2(150),
+  attribute_id      NUMBER,
+  province_id       NUMBER,
+  zone_id           NUMBER not null,
+  zone_src_id       NUMBER not null,
+  zone_name         VARCHAR2(150),
+  region_id         NUMBER not null,
+  region_src_id     NUMBER not null,
+  region_name       VARCHAR2(150),
+  region_name_alt   VARCHAR2(50),
+  base_attribute    VARCHAR2(50),
+  battle_attribute  VARCHAR2(50),
+  branch_priority   NUMBER,
+  zone_priority     NUMBER,
+  region_priority   NUMBER,
+  factory_attribute VARCHAR2(10),
+  factory_desc      VARCHAR2(50)
+)
+
+ORA-01031: insufficient privileges
+
+create index STGS.DIM_REGION_BRANCH_N1 on STGS.DIM_REGION_BRANCH (REGION_NAME_ALT, BRANCH_ID)
+
+ORA-01031: insufficient privileges
+
+create unique index STGS.DIM_REGION_BRANCH_U1 on STGS.DIM_REGION_BRANCH (BRANCH_SRC_ID, BRANCH_SRC_TYPE)
+
+ORA-01031: insufficient privileges
+
+alter table STGS.DIM_REGION_BRANCH
+  add constraint DIM_REGION_BRANCH_PK primary key (BRANCH_ID)
+
+ORA-01031: insufficient privileges
+
+Creating table DIM_REGION_SECONDARY
+===================================
+
+
+create table STGS.DIM_REGION_SECONDARY
+(
+  secondary_region_id       NUMBER not null,
+  secondary_region_src_id   NUMBER not null,
+  secondary_region_src_type VARCHAR2(10),
+  secondary_region_name     VARCHAR2(150),
+  territory_id              NUMBER,
+  branch_id                 NUMBER not null,
+  branch_src_id             NUMBER not null,
+  branch_name               VARCHAR2(150),
+  zone_id                   NUMBER not null,
+  zone_src_id               NUMBER not null,
+  zone_name                 VARCHAR2(150),
+  region_id                 NUMBER not null,
+  region_src_id             NUMBER not null,
+  region_name               VARCHAR2(150),
+  region_name_alt           VARCHAR2(50),
+  t_level_id                NUMBER,
+  base_attribute            VARCHAR2(50),
+  battle_attribute          VARCHAR2(50),
+  factory_attribute         VARCHAR2(10)
+)
+
+ORA-01031: insufficient privileges
+
+create index STGS.DIM_REGION_SECONDARY_N1 on STGS.DIM_REGION_SECONDARY (SECONDARY_REGION_SRC_TYPE, ZONE_SRC_ID)
+
+ORA-01031: insufficient privileges
+
+create unique index STGS.DIM_REGION_SECONDARY_U1 on STGS.DIM_REGION_SECONDARY (SECONDARY_REGION_SRC_ID, SECONDARY_REGION_SRC_TYPE)
+
+ORA-01031: insufficient privileges
+
+alter table STGS.DIM_REGION_SECONDARY
+  add constraint DIM_REGION_SECONDARY_PK primary key (SECONDARY_REGION_ID)
+
+ORA-01031: insufficient privileges
+
+Creating table DIM_REGION_ZONE
+==============================
+
+
+create table STGS.DIM_REGION_ZONE
+(
+  zone_id         NUMBER not null,
+  zone_src_id     NUMBER not null,
+  zone_src_type   VARCHAR2(10),
+  zone_name       VARCHAR2(150),
+  region_id       NUMBER not null,
+  region_src_id   NUMBER not null,
+  region_name     VARCHAR2(150),
+  region_name_alt VARCHAR2(50),
+  region_priority NUMBER,
+  zone_priority   NUMBER
+)
+
+ORA-01031: insufficient privileges
+
+create index STGS.DIM_REGION_ZONE_N1 on STGS.DIM_REGION_ZONE (REGION_ID)
+
+ORA-01031: insufficient privileges
+
+alter table STGS.DIM_REGION_ZONE
+  add constraint DIM_REGION_ZONE_REGION_PK primary key (ZONE_ID)
+
+ORA-01031: insufficient privileges
+
+Creating sequence DIM_REGION_S
+==============================
+
+
+create sequence STGS.DIM_REGION_S
+minvalue 1
+maxvalue 999999999999999999999999999
+start with 250000
+increment by 1
+nocache
+
+ORA-01031: insufficient privileges
+
+Creating package DW_LOAD_REGION_NEW_ETL
+=======================================
+
+
+CREATE OR REPLACE PACKAGE STGS.DW_LOAD_REGION_NEW_ETL IS
+  /*==================================================
+  Copyright (C) TsingTao Brewery Co.,Ltd.
+             AllRights Reserved
+  ==================================================*/
+  /*==================================================
+  Program Name:
+      DW_LOAD_REGION_ETL
+  Description:
+      This program provide util function for region dimension for ETL.
+      需要确认几点:
+      1)是否有新增的销售单位及其简称;
+      2)胶东等区域是否已改为片区（已改为片区）;
+      3)海外新科（海外直接从系统里导出，新科和工厂自销仍需手工导入）。
+
+  History:
+       1.00  2009-11-19  Tsingtao Technology  Creation
+  ==================================================*/
+--
+  /*==================================================
+  Procedure Name :
+      main
+  Description:
+      This procedure proceed the region dimension etl.
+
+  History:
+       1.00  2009-11-19  Tsingtao Technology  Creation
+  ==================================================*/
+  PROCEDURE main;
+--
+  /*==================================================
+  Function Name :
+      get_region_alt
+  Description:
+      This function proceed the region dimension etl.
+
+  History:
+       1.00  2009-11-19  Tsingtao Technology  Creation
+  ==================================================*/
+  FUNCTION get_region_alt(p_region_name IN VARCHAR2) RETURN VARCHAR2;
+--
+END DW_LOAD_REGION_NEW_ETL;
+
+ORA-01031: insufficient privileges
+
+Creating package body DW_LOAD_REGION_NEW_ETL
+============================================
+
+
+CREATE OR REPLACE PACKAGE BODY STGS.DW_LOAD_REGION_NEW_ETL IS
+  /*==================================================
+  Copyright (C) TsingTao Brewery Co.,Ltd.
+             AllRights Reserved
+  ==================================================*/
+  /*==================================================
+  Program Name:
+      DW_LOAD_REGION_ETL
+  Description:
+      This program provide util function for region dimension for ETL.
+
+  History:
+      1.00  2009-11-19  Tsingtao Technology  Creation
+      1.10  2009-11-30  updated by Tsingtao
+      1.20  2010-01-25  Updated by Hand Consultant
+                            1. Region dimension table change
+                            2. Before region adujustment project, only load 5 provice area & 9 provice office
+      1.30  2010-02-04  Updated by Hand Consultant
+                            处理只将二级区域调成办事处的情况
+  ==================================================*/
+--
+  /*==================================================
+  Function Name :
+      get_branch_province
+  Description:
+      This Function to get the province of 5 provice area or 9 province office.
+
+  History:
+       1.00  2010-01-27  Hand Consultant  Creation
+  ==================================================*/
+  FUNCTION get_branch_province(p_branch_id IN NUMBER) RETURN NUMBER
+  IS
+    l_province_id NUMBER;
+  BEGIN
+    SELECT province_bi
+      INTO l_province_id
+      FROM erps.bsm_region_tree
+     WHERE segment3_id = p_branch_id;
+
+    RETURN l_province_id;
+  EXCEPTION WHEN OTHERS THEN
+    RETURN NULL;
+  END get_branch_province;
+--
+  FUNCTION get_region_alt(p_region_name IN VARCHAR2) RETURN VARCHAR2
+  IS
+    l_region_alt VARCHAR2(30);
+    x_result     VARCHAR2(30);
+  BEGIN
+    IF p_region_name = '华北省区' THEN
+      l_region_alt := '华北';
+    ELSIF p_region_name = '苏北' THEN
+      l_region_alt := '苏北';
+    ELSIF p_region_name = '北京' THEN
+      l_region_alt := '北京';
+    ELSIF p_region_name = '吉林(无效)' THEN
+      l_region_alt := '吉林';
+    ELSIF p_region_name = '河南省区' THEN
+      l_region_alt := '河南';
+    ELSIF p_region_name = '辽宁省区' THEN
+      l_region_alt := '辽宁';
+    ELSIF p_region_name = '山东省区' THEN
+      l_region_alt := '山东';
+    ELSIF p_region_name = '浙江省区' THEN
+      l_region_alt :=  '浙江';
+    ELSIF p_region_name = '黑龙江东省级办事处' THEN
+      l_region_alt := '龙东';
+    ELSIF p_region_name = '内蒙东省级办事处' THEN
+      l_region_alt := '蒙东';
+    ELSIF p_region_name = '内蒙西省级办事处' THEN
+      l_region_alt := '蒙西';
+    ELSIF p_region_name = '新疆省级办事处' THEN
+      l_region_alt := '新疆';
+    ELSIF p_region_name = '云南省级办事处' THEN
+      l_region_alt := '云南';
+    ELSIF p_region_name = '重庆省级办事处' THEN
+      l_region_alt := '重庆';
+    ELSIF p_region_name = '宁夏省级办事处' THEN
+      l_region_alt := '宁夏';
+    ELSIF p_region_name = '黑龙江西省级办事处' THEN
+      l_region_alt := '龙西';
+    ELSIF p_region_name = '贵州省级办事处' THEN
+      l_region_alt := '贵州';
+    ELSIF p_region_name = '四川销售' THEN
+      l_region_alt := '四川';
+    ELSIF p_region_name = '甘肃销售' THEN
+      l_region_alt := '甘肃';
+    ELSIF p_region_name = '东南营销' THEN
+      l_region_alt := '东南';
+    ELSIF p_region_name = '北京销售' THEN
+      l_region_alt := '北京';
+    ELSIF p_region_name = '陕西销售' THEN
+      l_region_alt := '陕西';
+    ELSIF p_region_name = '华南营销' THEN
+      l_region_alt := '华南';
+    ELSIF p_region_name = '华东营销' THEN
+      l_region_alt := '华东';
+    ELSIF p_region_name = '海外事业部' THEN
+      l_region_alt := '海外';
+    ELSE
+      l_region_alt := p_region_name;
+    END IF;
+
+    x_result := l_region_alt;
+    RETURN x_result;
+  EXCEPTION WHEN OTHERS THEN
+    RETURN x_result;
+  END get_region_alt;
+--
+  PROCEDURE main IS
+    l_region_id               NUMBER;
+    l_zone_id                 NUMBER;
+    l_branch_id               NUMBER;
+    l_secondary_region_id     NUMBER;
+    l_territory_id            NUMBER;
+    l_secondary_region_name   VARCHAR2(150);
+
+    CURSOR cur_secondary IS
+      SELECT rs.region_src_id,
+             rs.region_name,
+             get_region_alt(rs.region_name) region_name_alt,
+             rs.zone_src_id,
+             rs.zone_name,
+             rs.branch_src_id,
+             rs.branch_name,
+             rs.base_attribute,
+             rs.battle_attribute,
+             rs.secondary_region_src_id,
+             rs.secondary_region_name,
+             rs.secondary_base_attribute,
+             rs.secondary_battle_attribute
+        FROM stgs.stg_region_secondary_v rs;
+  BEGIN
+    -- 1. 循环二级区域，插入维表
+    FOR r_region IN cur_secondary LOOP
+      -- 1.1 region
+      BEGIN
+        SELECT dra.region_id
+          INTO l_region_id
+          FROM dim_region_area dra
+         WHERE dra.region_src_id = r_region.region_src_id;
+
+        UPDATE dim_region_area dra
+           SET dra.region_name     = r_region.region_name,
+               dra.region_name_alt = r_region.region_name_alt
+         WHERE dra.region_src_id   = r_region.region_src_id;
+      EXCEPTION WHEN NO_DATA_FOUND THEN
+        SELECT dim_region_s.NEXTVAL INTO l_region_id FROM dual;
+
+        INSERT INTO dim_region_area
+          (region_id,
+           region_src_id,
+           region_name,
+           region_name_alt)
+        VALUES
+          (l_region_id,
+           r_region.region_src_id,
+           r_region.region_name,
+           r_region.region_name_alt);
+      END;
+
+      -- 1.2 zone
+      BEGIN
+        SELECT drz.zone_id
+          INTO l_zone_id
+          FROM dim_region_zone drz
+         WHERE drz.zone_src_id = r_region.zone_src_id;
+
+         UPDATE dim_region_zone drz
+            SET drz.region_id       = l_region_id,
+                drz.region_src_id   = r_region.region_src_id,
+                drz.region_name     = r_region.region_name,
+                drz.zone_name       = r_region.zone_name,
+                drz.region_name_alt = r_region.region_name_alt
+          WHERE drz.zone_src_id = r_region.zone_src_id;
+      EXCEPTION WHEN NO_DATA_FOUND THEN
+        SELECT dim_region_s.NEXTVAL INTO l_zone_id FROM dual;
+
+        INSERT INTO dim_region_zone
+          (zone_id,
+           zone_src_id,
+           zone_name,
+           region_id,
+           region_src_id,
+           region_name,
+           region_name_alt)
+        VALUES
+          (l_zone_id,
+           r_region.zone_src_id,
+           r_region.zone_name,
+           l_region_id,
+           r_region.region_src_id,
+           r_region.region_name,
+           r_region.region_name_alt);
+      END;
+
+      -- 1.3 branch
+      BEGIN
+        SELECT branch_id
+          INTO l_branch_id
+          FROM dim_region_branch drb
+         WHERE drb.branch_src_id = r_region.branch_src_id;
+
+        UPDATE dim_region_branch drb
+           SET drb.region_id        = l_region_id,
+               drb.region_src_id    = r_region.region_src_id,
+               drb.region_name      = r_region.region_name,
+               drb.region_name_alt  = r_region.region_name_alt,
+               drb.zone_name        = r_region.zone_name,
+               drb.zone_id          = l_zone_id,
+               drb.zone_src_id      = r_region.zone_src_id,
+               drb.branch_name      = r_region.branch_name,
+               drb.base_attribute   = r_region.base_attribute,
+               drb.battle_attribute = r_region.battle_attribute
+         WHERE drb.branch_src_id    = r_region.branch_src_id;
+      EXCEPTION WHEN NO_DATA_FOUND THEN
+        SELECT dim_region_s.NEXTVAL INTO l_branch_id FROM dual;
+
+        INSERT INTO dim_region_branch
+          (branch_id,
+           branch_src_id,
+           branch_name,
+           zone_id,
+           zone_src_id,
+           zone_name,
+           region_id,
+           region_src_id,
+           region_name,
+           region_name_alt,
+           base_attribute,
+           battle_attribute)
+        VALUES
+          (l_branch_id,
+           r_region.branch_src_id,
+           r_region.branch_name,
+           l_zone_id,
+           r_region.zone_src_id,
+           r_region.zone_name,
+           l_region_id,
+           r_region.region_src_id,
+           r_region.region_name,
+           r_region.region_name_alt,
+           r_region.base_attribute,
+           r_region.battle_attribute);
+      END;
+
+      -- 1.4 secondary region
+      BEGIN
+        -- 1.4.1 获取territory_id
+        BEGIN
+          SELECT rt.territory_id
+            INTO l_territory_id
+            FROM erps.ra_territories rt
+           WHERE rt.status = 'A'
+             AND rt.enabled_flag = 'Y'
+             AND rt.attribute12 = r_region.zone_src_id
+             AND rt.attribute14 = r_region.secondary_region_src_id
+             AND rt.attribute13 = r_region.region_src_id
+             AND rt.attribute15 = r_region.branch_src_id;
+        EXCEPTION WHEN NO_DATA_FOUND THEN
+          l_territory_id := NULL;
+        END;
+
+        -- 1.4.2 insert/update
+        BEGIN
+          SELECT secondary_region_id
+            INTO l_secondary_region_id
+            FROM dim_region_secondary drs
+           WHERE drs.secondary_region_src_id = r_region.secondary_region_src_id;
+
+          -- 对于费控中补齐的二级区域，secondary_region_id = branch_id
+          IF r_region.secondary_region_name = r_region.branch_name || '缺省' THEN
+            l_secondary_region_id := l_branch_id;
+            l_secondary_region_name := r_region.branch_name || '_缺省';
+          ELSE
+            l_secondary_region_name := r_region.secondary_region_name;
+          END IF;
+
+          UPDATE dim_region_secondary drs
+             SET drs.region_id                 = l_region_id,
+                 drs.region_src_id             = r_region.region_src_id,
+                 drs.region_name               = r_region.region_name,
+                 drs.region_name_alt           = r_region.region_name_alt,
+                 drs.zone_name                 = r_region.zone_name,
+                 drs.zone_id                   = l_zone_id,
+                 drs.zone_src_id               = r_region.zone_src_id,
+                 drs.branch_id                 = l_branch_id,
+                 drs.branch_src_id             = r_region.branch_src_id,
+                 drs.branch_name               = r_region.branch_name,
+                 drs.secondary_region_name     = l_secondary_region_name,
+                 drs.territory_id              = l_territory_id,
+                 drs.base_attribute            = r_region.secondary_base_attribute,
+                 drs.battle_attribute          = r_region.secondary_battle_attribute
+           WHERE drs.secondary_region_src_id   = r_region.secondary_region_src_id;
+        EXCEPTION WHEN NO_DATA_FOUND THEN
+          -- 对于费控中补齐的二级区域，secondary_region_id = branch_id
+          IF r_region.secondary_region_name LIKE '%缺省' THEN
+            l_secondary_region_id := l_branch_id;
+            l_secondary_region_name := r_region.branch_name || '_缺省';
+          ELSE
+            SELECT dim_region_s.NEXTVAL INTO l_secondary_region_id FROM dual;
+            l_secondary_region_name := r_region.secondary_region_name;
+          END IF;
+          INSERT INTO dim_region_secondary
+            (secondary_region_id,
+             secondary_region_src_id,
+             secondary_region_name,
+             territory_id,
+             branch_id,
+             branch_src_id,
+             branch_name,
+             zone_id,
+             zone_src_id,
+             zone_name,
+             region_id,
+             region_src_id,
+             region_name,
+             region_name_alt,
+             base_attribute,
+             battle_attribute)
+          VALUES
+            (l_secondary_region_id,
+             r_region.secondary_region_src_id,
+             l_secondary_region_name,
+             l_territory_id,
+             l_branch_id,
+             r_region.branch_src_id,
+             r_region.branch_name,
+             l_zone_id,
+             r_region.zone_src_id,
+             r_region.zone_name,
+             l_region_id,
+             r_region.region_src_id,
+             r_region.region_name,
+             r_region.region_name_alt,
+             r_region.secondary_base_attribute,
+             r_region.secondary_battle_attribute);
+        END;
+      END;
+    END LOOP;
+
+    -- 2. 补齐区域
+    -- 2.1 大区补齐
+    -- 2.1.1 大区补到片区
+    MERGE INTO dim_region_zone dest
+    USING (SELECT region_id,
+                  region_src_id,
+                  region_name,
+                  region_name_alt
+             FROM dim_region_area
+            WHERE region_id NOT IN (0, 999999999)) src
+    ON (dest.zone_id = src.region_id)
+    WHEN MATCHED THEN UPDATE SET dest.zone_name = src.region_name || '_缺省', dest.region_name = src.region_name, dest.region_name_alt = src.region_name_alt
+    WHEN NOT MATCHED THEN INSERT (dest.zone_id, dest.zone_src_id, dest.zone_name,
+                                  dest.region_id, dest.region_src_id, dest.region_name, dest.region_name_alt)
+                          VALUES (src.region_id, src.region_src_id, src.region_name || '_缺省',
+                                  src.region_id, src.region_src_id, src.region_name, src.region_name_alt);
+    -- 2.1.2 大区补到办事处
+    MERGE INTO dim_region_branch dest
+    USING (SELECT region_id,
+                  region_src_id,
+                  region_name,
+                  region_name_alt
+             FROM dim_region_area
+            WHERE region_id NOT IN (0, 999999999)) src
+    ON (dest.branch_id = src.region_id)
+    WHEN MATCHED THEN UPDATE SET dest.branch_name = src.region_name || '_缺省', dest.zone_name = src.region_name || '_缺省', dest.region_name = src.region_name, dest.region_name_alt = src.region_name_alt
+    WHEN NOT MATCHED THEN INSERT (dest.branch_id, dest.branch_src_id, dest.branch_name,
+                                  dest.zone_id, dest.zone_src_id, dest.zone_name,
+                                  dest.region_id, dest.region_src_id, dest.region_name, dest.region_name_alt)
+                          VALUES (src.region_id, src.region_src_id, src.region_name || '_缺省',
+                                  src.region_id, src.region_src_id, src.region_name || '_缺省',
+                                  src.region_id, src.region_src_id, src.region_name, src.region_name_alt);
+    -- 2.1.3 大区补到二级区域
+    MERGE INTO dim_region_secondary dest
+    USING (SELECT region_id,
+                  region_src_id,
+                  region_name,
+                  region_name_alt
+             FROM dim_region_area
+            WHERE region_id NOT IN (0, 999999999)) src
+    ON (dest.secondary_region_id = src.region_id)
+    WHEN MATCHED THEN UPDATE SET dest.secondary_region_name = src.region_name || '_缺省', dest.branch_name = src.region_name || '_缺省',
+                                 dest.zone_name = src.region_name || '_缺省', dest.region_name = src.region_name, dest.region_name_alt = src.region_name_alt
+    WHEN NOT MATCHED THEN INSERT (dest.secondary_region_id, dest.secondary_region_src_id, dest.secondary_region_name,
+                                  dest.branch_id, dest.branch_src_id, dest.branch_name,
+                                  dest.zone_id, dest.zone_src_id, dest.zone_name,
+                                  dest.region_id, dest.region_src_id, dest.region_name, dest.region_name_alt)
+                          VALUES (src.region_id, src.region_src_id, src.region_name || '_缺省',
+                                  src.region_id, src.region_src_id, src.region_name || '_缺省',
+                                  src.region_id, src.region_src_id, src.region_name || '_缺省',
+                                  src.region_id, src.region_src_id, src.region_name, src.region_name_alt);
+    -- 2.2 片区补齐
+    -- 2.2.1 片区补到办事处
+    MERGE INTO dim_region_branch dest
+    USING (SELECT zone_id,
+                  zone_src_id,
+                  zone_name,
+                  region_id,
+                  region_src_id,
+                  region_name,
+                  region_name_alt
+             FROM dim_region_zone
+            WHERE zone_name NOT LIKE '%_缺省'
+              AND zone_id NOT IN (0, 999999999)) src
+    ON (dest.branch_id = src.zone_id)
+    WHEN MATCHED THEN UPDATE SET dest.branch_name = src.zone_name || '_缺省', dest.zone_name = src.zone_name, dest.region_name = src.region_name, dest.region_name_alt = src.region_name_alt
+    WHEN NOT MATCHED THEN INSERT (dest.branch_id, dest.branch_src_id, dest.branch_name,
+                                  dest.zone_id, dest.zone_src_id, dest.zone_name, dest.region_id, dest.region_src_id, dest.region_name, dest.region_name_alt)
+                          VALUES (src.zone_id, src.zone_src_id, src.zone_name || '_缺省',
+                                  src.zone_id, src.zone_src_id, src.zone_name, src.region_id, src.region_src_id, src.region_name, src.region_name_alt);
+    -- 2.2.2 片区补到二级区域
+    MERGE INTO dim_region_secondary dest
+    USING (SELECT zone_id,
+                  zone_src_id,
+                  zone_src_type,
+                  zone_name,
+                  region_id,
+                  region_src_id,
+                  region_name,
+                  region_name_alt
+             FROM dim_region_zone
+            WHERE zone_name NOT LIKE '%_缺省'
+              AND zone_id NOT IN (0, 999999999)) src
+    ON (dest.secondary_region_id = src.zone_id)
+    WHEN MATCHED THEN UPDATE SET dest.secondary_region_name = src.zone_name || '_缺省', dest.branch_name = src.zone_name || '_缺省',
+                                 dest.zone_name = src.zone_name, dest.region_name = src.region_name, dest.region_name_alt = src.region_name_alt
+    WHEN NOT MATCHED THEN INSERT (dest.secondary_region_id, dest.secondary_region_src_id, dest.secondary_region_name,
+                                  dest.branch_id, dest.branch_src_id, dest.branch_name,
+                                  dest.zone_id, dest.zone_src_id, dest.zone_name,
+                                  dest.region_id, dest.region_src_id, dest.region_name, dest.region_name_alt)
+                          VALUES (src.zone_id, src.zone_src_id, src.zone_name || '_缺省',
+                                  src.zone_id, src.zone_src_id, src.zone_name || '_缺省',
+                                  src.zone_id, src.zone_src_id, src.zone_name,
+                                  src.region_id, src.region_src_id, src.region_name, src.region_name_alt);
+
+    -- 2.3 城市大区补齐
+    -- 2.3.1 城市大区补到二级区域
+    MERGE INTO dim_region_secondary dest
+    USING (SELECT branch_id,
+                  branch_src_id,
+                  branch_name,
+                  zone_id,
+                  zone_src_id,
+                  zone_name,
+                  region_id,
+                  region_src_id,
+                  region_name,
+                  region_name_alt
+             FROM dim_region_branch
+            WHERE branch_name NOT LIKE '%_缺省'
+              AND branch_src_type != 'FK'
+              AND zone_id NOT IN (0, 999999999)) src
+    ON (dest.secondary_region_id = src.branch_id)
+    WHEN MATCHED THEN UPDATE SET dest.secondary_region_name = src.branch_name || '_缺省', dest.branch_name = src.branch_name,
+                                 dest.zone_name = src.zone_name, dest.region_name = src.region_name, dest.region_name_alt = src.region_name_alt
+    WHEN NOT MATCHED THEN INSERT (dest.secondary_region_id, dest.secondary_region_src_id, dest.secondary_region_name,
+                                  dest.branch_id, dest.branch_src_id, dest.branch_name,
+                                  dest.zone_id, dest.zone_src_id, dest.zone_name, dest.region_id, dest.region_src_id, dest.region_name, dest.region_name_alt)
+                          VALUES (src.branch_id, src.branch_src_id, src.branch_name || '_缺省',
+                                  src.branch_id, src.branch_src_id, src.branch_name,
+                                  src.zone_id, src.zone_src_id, src.zone_name, src.region_id, src.region_src_id, src.region_name, src.region_name_alt);
+  END main;
+  --
+END DW_LOAD_REGION_NEW_ETL;
+
+ORA-01031: insufficient privileges

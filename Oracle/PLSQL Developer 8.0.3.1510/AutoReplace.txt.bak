@@ -1,0 +1,18 @@
+s =select * from
+w =where
+g =group by
+o =order by
+sc = select count(*) from
+td = ('2011-05-03 08:00:00','yyyy-mm-dd hh24:mi:ss')
+stp = select * from tuc_persons tp where tp
+dis =distinct
+sb = sysdate between nvl(hf.effective_start_date,sysdate) and nvl(hf.effective_end_date,sysdate)
+flex =select fv.flex_value,      fv.description,      fv.flex_value_id from   fnd_flex_value_sets fs,      fnd_flex_values_vl fv where  fs.flex_value_set_id = fv.flex_value_set_id and    fs.flex_value_set_name = 'TB_EMP'
+lk =(fv.description IS NULL OR fv.description LIKE '%'||nvl(p_query_string,'')||'%')
+cop =create or replace
+ct = create table CUX_MENUS(MENU_ID  NUMBER ,MENU_NAME  VARCHAR2(30),LAST_UPDATE_DATE  DATE not null,LAST_UPDATED_BY   NUMBER not null)
+cm = CREATE MATERIALIZED VIEW tip_persons_raw_mv
+REFRESH FORCE ON DEMAND
+--START WITH TO_DATE('09-12-2009 16:19:48', 'DD-MM-YYYY HH24:MI:SS') NEXT SYSDATE + 1/4096   --20s Ë¢ÐÂ
+START WITH TO_DATE('2014-04-03 12:40', 'YYYY-MM-DD HH24:MI') NEXT SYSDATE + 1/24
+AS

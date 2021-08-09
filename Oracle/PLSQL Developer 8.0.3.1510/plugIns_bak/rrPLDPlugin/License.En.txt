@@ -1,0 +1,5 @@
+rrProject Plugin for PL/SQL Developer is a freeware utility and distributes
+"as is". You may use it as you wish as long as you keep it's integrity.
+Author doesn't guarantee that Plugin will fulfill all of your expectations.
+Author is not responsible for possible consequencies caused by the Plugin.
+Nevertheless, author will try his best to respond to every e-mail received.

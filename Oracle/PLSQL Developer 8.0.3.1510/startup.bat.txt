@@ -1,0 +1,7 @@
+@echooff
+set path=C:\instantclient_11_2
+set ORACLE_HOME=C:\instantclient_11_2
+set TNS_ADMIN=C:\instantclient_11_2
+set NLS_LANG=AMERICAN_AMERICA.ZHS16GBK
+start plsqldev.exe
+

@@ -1,0 +1,140 @@
+<Symbols PropFormat="node">
+  <Item>
+    <AlwaysDisp>0</AlwaysDisp>
+    <AutoIndent>1</AutoIndent>
+    <Description>Modified comment</Description>
+    <Kind>skComment</Kind>
+    <Name>//modified</Name>
+    <ScopeRate>15</ScopeRate>
+    <Text>// Modified by %User% %DateTime%</Text>
+  </Item>
+  <Item>
+    <AlwaysDisp>0</AlwaysDisp>
+    <AutoIndent>1</AutoIndent>
+    <Description>begin exception end statements</Description>
+    <Kind>skTemplate</Kind>
+    <Name>begex</Name>
+    <ScopeRate>15</ScopeRate>
+    <Text>begin
+  |
+exception
+end;</Text>
+  </Item>
+  <Item>
+    <AlwaysDisp>0</AlwaysDisp>
+    <AutoIndent>1</AutoIndent>
+    <Description>begin end statements</Description>
+    <Kind>skTemplate</Kind>
+    <Name>begs</Name>
+    <ScopeRate>15</ScopeRate>
+    <Text>begin
+  |
+end;</Text>
+  </Item>
+  <Item>
+    <AlwaysDisp>0</AlwaysDisp>
+    <AutoIndent>1</AutoIndent>
+    <Description>for loop statements</Description>
+    <Kind>skTemplate</Kind>
+    <Name>forl</Name>
+    <ScopeRate>15</ScopeRate>
+    <Text>for | in .. loop
+end loop;--  </Text>
+  </Item>
+  <Item>
+    <AlwaysDisp>0</AlwaysDisp>
+    <AutoIndent>1</AutoIndent>
+    <Description>function declaration</Description>
+    <Kind>skTemplate</Kind>
+    <Name>function</Name>
+    <ScopeRate>15</ScopeRate>
+    <Text>function |(): 
+as
+begin
+end;</Text>
+  </Item>
+  <Item>
+    <AlwaysDisp>0</AlwaysDisp>
+    <AutoIndent>1</AutoIndent>
+    <Description>having by statement</Description>
+    <Kind>skTemplate</Kind>
+    <Name>havb</Name>
+    <ScopeRate>15</ScopeRate>
+    <Text>having by |</Text>
+  </Item>
+  <Item>
+    <AlwaysDisp>0</AlwaysDisp>
+    <AutoIndent>1</AutoIndent>
+    <Description>if then else statements</Description>
+    <Kind>skTemplate</Kind>
+    <Name>ife</Name>
+    <ScopeRate>15</ScopeRate>
+    <Text>if | then
+else
+end if;--  </Text>
+  </Item>
+  <Item>
+    <AlwaysDisp>0</AlwaysDisp>
+    <AutoIndent>1</AutoIndent>
+    <Description>if then elsif statements</Description>
+    <Kind>skTemplate</Kind>
+    <Name>ifei</Name>
+    <ScopeRate>15</ScopeRate>
+    <Text>if | then
+elsif then
+end if;--</Text>
+  </Item>
+  <Item>
+    <AlwaysDisp>0</AlwaysDisp>
+    <AutoIndent>1</AutoIndent>
+    <Description>if then statements</Description>
+    <Kind>skTemplate</Kind>
+    <Name>ifs</Name>
+    <ScopeRate>15</ScopeRate>
+    <Text>if | then
+end if;--  </Text>
+  </Item>
+  <Item>
+    <AlwaysDisp>0</AlwaysDisp>
+    <AutoIndent>1</AutoIndent>
+    <Description>order by statement</Description>
+    <Kind>skTemplate</Kind>
+    <Name>ordb</Name>
+    <ScopeRate>15</ScopeRate>
+    <Text>order by |</Text>
+  </Item>
+  <Item>
+    <AlwaysDisp>0</AlwaysDisp>
+    <AutoIndent>1</AutoIndent>
+    <Description>procedure declaration</Description>
+    <Kind>skTemplate</Kind>
+    <Name>procedure</Name>
+    <ScopeRate>15</ScopeRate>
+    <Text>procedure |()
+as
+begin
+end;</Text>
+  </Item>
+  <Item>
+    <AlwaysDisp>0</AlwaysDisp>
+    <AutoIndent>1</AutoIndent>
+    <Description>select * from statements</Description>
+    <Kind>skTemplate</Kind>
+    <Name>sel*</Name>
+    <ScopeRate>15</ScopeRate>
+    <Text>select
+*
+from | t</Text>
+  </Item>
+  <Item>
+    <AlwaysDisp>0</AlwaysDisp>
+    <AutoIndent>1</AutoIndent>
+    <Description>select from dual statements</Description>
+    <Kind>skTemplate</Kind>
+    <Name>seld</Name>
+    <ScopeRate>15</ScopeRate>
+    <Text>select
+  |
+from dual</Text>
+  </Item>
+</Symbols>

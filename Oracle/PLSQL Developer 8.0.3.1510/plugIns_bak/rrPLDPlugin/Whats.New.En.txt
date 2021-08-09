@@ -1,0 +1,168 @@
+01.10.13 Version 1.2.0
+--------------------------------------------------------------------------------
++ Wizard: IDE Enhancements: Added Window List Highlight Tool.
+~ Wizard: Connections Tools: Advanced Window Indicator Tool: Changed the algorithm of drawing.
+
+01.08.13 Version 1.1.1
+--------------------------------------------------------------------------------
++ Wizard: Connections Tools: Added Advanced Window Indicator Tool (V9.X and above).
++ Wizard: IDE Enhancements: Window autocreation Tool: Added support Window List.
++ Config: Text Editor Enhancements: Selection Enclosing Tool: Added "Unselect text after execution" option.
++ Engine: Added internal statistics.
+~ Wizard: Objects Browser Enhancements: "What" Parameter Job Tool: Added support sole procedure.
+
+07.03.13 Version 1.1.0
+--------------------------------------------------------------------------------
++ Engine: Added basic support for V10.X.
+~ Wizard: IDE Enhancements: Support Info Export Tool: Fixed trimming of last character.
+~ Wizard: Objects Browser Enhancements: "What" Parameter Job Tool: Fixed Access Violation.
+~ Wizard: Code Input Helper: Fixed cursor positioning.
++ Wizard: Connections Tools: Added Main connection Indicator Tool.
+~ Wizard: Connections Tools: Connection Change tool: Changed behavior, see description for detail.
++ Wizard: IDE Enhancements: Added Shell context menu Tool.
+~ Wizard: IDE Enhancements: Customize Sql Window Creation Tool: Added autopaste of clipboard text.
++ Wizard: IDE Enhancements: Added Window autocreation Tool.
+~ Wizard: Code Editor Wizard: Extended Status Bar Tool: Fixed moving at an empty line in a column position > 1.
+~ Config: Wizards settings Dialog: Small visual changes.
+~ Config: Tools settings Dialog: Small visual changes.
+
+30.10.2012 Version 1.0.6
+--------------------------------------------------------------------------------
++ Wizard: Code Editor Wizard: Extended Status Bar Tool: Added 'Go To Line' dialog support.
++ Wizard: IDE Enhancements: Added Column selector space Tool.
++ Config: Code Editor Wizard: Extended Status Bar Tool: Added dialog window.
+~ Wizard: Code Editor Wizard: Text Highlight Tool: Added support for V7.X.
+
+31.08.2012 Version 1.0.5
+--------------------------------------------------------------------------------
++ Wizard: IDE Enhancements: Added Grid cell Viewer.
+~ Wizard: Code Editor Wizard: Extended Status Bar Tool: Added showing of a current char code.
++ Wizard: Text Editor Enhancements: Added Pairing Chars Completion Tool.
+~ Wizard: Code Input Helper: Fixed cursor positioning.
++ Wizard: Code Editor Wizard: Added Text Highlight Tool.
+~ Wizard: Code Editor Wizard: Moved Extended Status Bar Tool.
+~ Engine: Deleted test code.
+
+27.07.2012 Version 1.0.4
+--------------------------------------------------------------------------------
++ Wizard: Text Editor Enhancements: Added Switch Case Shortcut Tool.
++ Wizard: Text Editor Enhancements: Added Switch Case Dialog Tool.
+~ Wizard: Connections Tools: Advanced Connection Indicator Tool: Improved behavior.
+
+22.05.2012 Version 1.0.3
+--------------------------------------------------------------------------------
+~ Wizard: Code Editor Wizard: Toggle between Impl./Decl. Tool: Improved behavior.
+~ Wizard: IDE Enhancements: Support Info Export Tool: Improved behavior.
+
+11.05.2012 Version 1.0.2
+--------------------------------------------------------------------------------
+~ Help: Improved brief descriptions.
+~ Wizard: Code Contents List Wizard: Improved behavior.
+~ Wizard: Code Editor Wizard: Added Toggle between Impl./Decl. Tool: Fixed location error.
+~ Wizard: Objects Browser Enhancements: "What" Parameter Job Tool: Fixed location error.
+
+05.05.2012 Version 1.0.1
+--------------------------------------------------------------------------------
+~ Wizard: IDE Enhancements: Customize Sql Window Creation Tool: Fixed "Check clipboard" option.
+~ Wizard: Compare tools: Compare Windows Tool: Added message about missing external Comparison tool.
+~ Wizard: Code Editor Wizard: Toggle between Impl./Decl. Tool: Code Contents window refresh event code optimized.
+~ Wizard: Objects Browser Enhancements: "What" Parameter Job Tool: Code Contents window refresh event code optimized.
+~ Engine: Improved behavior in Vista-interface.
+~ Engine: Improved font behavior for various resolutions.
+
+27.04.2012 Version 1.0.0
+--------------------------------------------------------------------------------
++ Wizard: IDE Enhancements: Added Support Info Export Tool.
+
+18.04.2012 Version 1.0.0 RC3
+--------------------------------------------------------------------------------
++ Wizard: Added Compare tools: Added Compare Windows Tool.
+- Wizard: Removed Clipboard History Wizard.
+
+31.12.2011 Version 1.0.0 RC2
+--------------------------------------------------------------------------------
+~ Translate: Improved translation in English UI (Thanks to Roman Bolshakov).
+~ Wizard: Objects Browser Enhancements: "What" Parameter Job Tool: Added "jump to declaration" feature.
++ Wizard: IDE Enhancements: Added Customize Object Opening tool.
++ Wizard: Code Editor Wizard: Added Toggle Read-Only tool.
++ Wizard: Objects Browser Enhancements: Added "What" Parameter Job tool.
+~ Wizard: Objects Browser Enhancements: Moved Object Privileges Wizard.
++ Wizard: Added Objects Browser Enhancements.
+
+08.12.2011 Version 1.0.0 RC1
+--------------------------------------------------------------------------------
+~ Wizard: Connections Tools: Moved Connection Change tool.
+~ Wizard: Connections Tools: Moved Advanced Connection Indicator tool.
++ Wizard: IDE Enhancements: Added Connection Change tool (V9.X and above).
++ Wizard: Connections Tools: Added Main to All Connection tool (V9.X and above).
++ Wizard: Connections Tools: Added Main to Current Connection tool (V9.X and above).
++ Wizard: Connections Tools: Added Current to Main Connection tool (V9.X and above).
++ Wizard: Added Connections Tools.
++ Wizard: IDE Enhancements: Double Click Close Tool: Added support for V7.X.
++ Config: Added check for unsupported versions.
++ Wizard: IDE Enhancements: Added Advanced Connection Indicator tool (V9.X and above).
++ Wizard: IDE Enhancements: Main Menu Icons Tool: Added support for V9.X.
++ Wizard: IDE Enhancements: Added Main Menu Icons tool.
+
+
+01.11.2011 Version 0.9.0 Beta
+--------------------------------------------------------------------------------
++ Wizard: Text Editor Enhancements: Added Extended Status Bar Tool.
++ Config: IDE Enhancements: Workspace Background Tool: Added dialog window.
++ Wizard: IDE Enhancements: Added Workspace Background Tool.
++ Config: Text Editor Enhancements: Selection Enclosing Tool: Added dialog window.
+~ Engine: Worked around error in OnMainMenu API method (Top menu items can be used from now on).
++ Config: IDE Enhancements: Double Click Close Tool: Added Dialog window.
++ Wizard: IDE Enhancements: Double Click Close Tool: "Close all but this one" feature added.
+~ Engine: Top window behavior in windows collection fixed.
++ Wizard: Text Editor Enhancements: Added Extended Semicolon Tool.
++ Config: IDE Enhancements: Customize Sql Window Creation Tool: Added dialog window.
++ Wizard: IDE Enhancements: Added Customize Sql Window Creation Tool.
++ Config: IDE Enhancements: Added dialog window.
++ Config: Text Editor Enhancements: Added dialog window.
++ Config: Code Editor Wizard: Added dialog window.
++ Engine: Config: Added dialog support for indented wizards.
++ Wizard: IDE Enhancements: Added Double Click Close Tool.
++ Wizard: Added IDE Enhancements.
++ Wizard: Text Editor Enhancements: Added Selection Enclosing Tool.
++ Wizard: Text Editor Enhancements: Added Extended Enter Tool.
++ Wizard: Text Editor Enhancements: Added Extended Home Tool.
+~ Wizard: Text Editor Enhancements: Moved Delphi Style Bookmark Wizard.
++ Wizard: Added Text Editor Enhancements.
+~ Engine: Added plugin-wide support of indented wizards.
++ Wizard: Code Editor Wizard: Added Next Compilation Error Tool.
++ Wizard: Code Editor Wizard: Added Previous Compilation Error Tool.
++ Wizard: Added About Wizard (with toolbar button).
++ Wizard: Added Options Wizard (with toolbar button).
++ Engine: Menu: Added support of toolbar buttons.
++ Wizard: Code Input Helper: Added provider "Code comments in XML Style".
++ Wizard: Code Input Helper: Added provider "Code comments in JavaDoc Style".
++ Wizard: Code Editor Wizard: Added Toggle between Impl./Decl. tool (limited).
++ Config: Code Input Helper: Added dialog window.
++ Wizard: Code Input Helper: Added provider "User-defined symbols and Code Templates".
++ Engine: Menu: Added Support of dividers in the main menu.
++ Wizard: Added Code Editor Wizard.
++ Engine: Menu: Added Support of submenu.
++ Engine: Menu: Added support of indented wizards.
++ PL/SQL Developer: Removed memory leak after About-window closing.
++ About: Added Plugin icon to PL/SQL Developer About-window.
++ About: Added dialog window.
++ Config: Code Contents List Wizard: Added dialog window.
++ Config: Command Wizard: Added dialog window.
++ Config: Object Privileges Wizard: Added dialog window.
++ Config: Clipboard history Wizard: Added dialog window.
+~ Engine: Config: Fixed hotkeys reset issue that happened each time Config window was called.
++ Wizard: Code Input Helper: Added provider "Database Usernames".
++ Wizard: Code Input Helper: Added provider "IDE's default and custom keywords".
++ Wizard: Code Input Helper: Added provider "IDE's Code Templates".
++ Wizard: Added Code Input Helper.
+
+Version 0.5.0 Alfa
+--------------------------------------------------------------------------------
++ Config: Added Main Config dialog.
++ Wizard: Added Clipboard History Wizard.
++ Wizard: Added Command Wizard.
++ Wizard: Added Delphi Style Bookmark Wizard.
++ Wizard: Added Object Privileges Wizard.
++ Wizard: Added Code Contents List Wizard.
++ About: Added Plugin icon to splash-window.

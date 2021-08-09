@@ -1,0 +1,124 @@
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   SmartEd Plug-In, version 2.0
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. What is SmartEd Plug-In ?
+
+   SmartEd (Smart Editor) is a plug-in, which lets you automatize writing
+   keywords or templates in PLSQL editor. The idea of automatization is taken 
+   from the UNIX command line BASH shell. With BASH, having written several first
+   letters of a word (or a command) and having pressed TAB-key then, you get 
+   either the completion of typed word or a word list with possible variants.
+   Now, with SmartEd Plug-In, you have such feature in PLSQL Developer too. 
+   SmartEd supports automatic keyword completion and PLSQL Developer template 
+   execution. SmartEd has a simple setup dialog, where you can assign hotkey
+   combinations to above actions. SmartEd also tracks simple statistics, which
+   includes the following items:
+	- the total amount of keyword completions;
+	- the total amount of template executions;
+	- the total keystroke amount.
+   
+   1.1 Keywords
+
+     SmartEd supports the keywords, listed in the sql.kwf and custom.kwf files
+     and the keywords, created by the "Syntax Highlighting" Plug-In
+     (www.allroundautomations.nl). The support of Syntax Highlighting plug-in
+     keywords lets automatize writing of database object names (table names,
+     trigger names etc). After a user defines new keywords by the Syntax 
+     Highlighting plug-in or manually, SmartEd must be reread the keyword list
+     (use "Tools/SmartEd/Reread keywords" menu item for this). After a user 
+     types a part of a keyword and presses the hotkey combination to complete
+     it, the SmartEd does according to the following algorithm:
+	1. Looks up the keyword list and selects those keywords, which start
+	   from the word under editor cursor;
+	2. If SmartEd finds only on keyword, the plug-in appends the keyword 
+	   ending to the word under editor cursor;
+	3. If SmartEd finds several keywords and all the found keywords have
+	   a common substring, SmartEd appends this substring to the word
+	   under editor cursor;
+	4. If SmartEd finds several keywords and the keywords do not have a
+	   common substring, SmartEd displays a dialog window with two tabs:
+	   "Keywords" and "Templates". The keyword tab page contains the listbox
+	   where all the found keywords are listed. At the template tab page
+	   there is a list of PLSQL Developer templates. All these templates
+	   contain the word under editor cursor.
+     When user selects the keyword and presses the OK button SmartEd adds
+     the selected word to the end of the word under cursor. To select a keyword
+     user also can press one of the following buttons: "Space", ".", ",", ";", 
+     "(", ")", "[", "]". In this case one of these symbols will be added to the
+     of the word under cursor.
+
+     If user chooses a template, instead of a keyword, SmartEd executes the
+     selected template (see item 1.2, "Templates").
+
+     Example 1.
+     Type the word "proc" and press the keyword hot key combination. SmartEd
+     will complete the word to the "procedure" keyword.
+
+     Example 2.
+     Type the word "pro" and press the keyword hot key combination. SmartEd
+     will display the list of two words: "procedure" and "profile", because
+     these words start from the substring "pro".
+
+   1.2 Templates
+     
+     SmartEd lets automatize the PLSQL Developer template execution. During
+     initialization process SmartEd scans the template directory and reads the
+     template contents. On pressing corresponding hotkey combination (Ctrl-Tab
+     by default, is specified in SmartEd setup dialog), SmartEd searches 
+     occurrences of the word under cursor in the template contents. SmartEd
+     ignores text in square brackets and comment lines. All the found template
+     names are displayed as a list. When user selects a template to execute and
+     presses the "Execute" button, SmartEd executes the selected template.
+
+     Example 1.
+     Type the keyword "constant" and press corresponding hotkey combination.
+     SmartEd will display the list of all the PLSQL Developer templates that
+     contain the keyword "constant":
+	Constants \ Binary integer.tpl
+	Constants \ Varchar2.tpl
+	.....
+
+2. Installing SmartEd Plug-In.
+
+   To install SmartEd just run setup.exe and follow the directions.
+
+3. Using SmartEd Plug-In.
+
+   Just type first letters of keyword or SQL-operator (for example select,
+   update, procedure etc) and press hotkey combination (hotkey is defined in the 
+   SmartEd setup). SmartEd will either complete typed word or will show the 
+   list of possible variants. Similarly you can execute a PLSQL Developer 
+   template. Just type the word which is contained in a template and press
+   a hotkey combination. SmartEd will display the list of the templates, that
+   contain the typed word. 
+   User can enable/disable SmartEd by choosing menu items Tools/SmartEd/Enabled
+   or Tools/SmartEd/Disabled. If lists of keywords are changed, SmartEd can 
+   refresh the lists. To do it just select Tools/SmartEd/Reread Keywords menu 
+   item. Use Tools/SmartEd/Setup menu item to change SmartEd settings.
+
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   Developed by Oleg Tyurin
+   email: oleg_tyurin@hotmail.com
+   icq:   21617143
+   Kharkov, Ukraine, 12 June 2001
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   ~~~~~~~~~~~~~~~~~~
+   New in version 2.0
+   ~~~~~~~~~~~~~~~~~~
+	- PLSQL Developer template execution support added;
+	- SmartEd statistics added;
+	- Keyword and template window appearance changed (window is now 
+	  resizable and its current size is stored in registry);
+	- Setup Dialog added. User can setup the hotkeys for keyword
+	  autocompletion and template executions;
+	- Plug-In configuration panel support added
+	  (Tools/Configure Plug-Ins... menu item);
+
+   ~~~~~~~~~~~~~~~~~~
+   New in version 1.1
+   ~~~~~~~~~~~~~~~~~~
+      - fixed error not permitting several plug-ins like SmartEd (Shortcuts
+        plug-in for example) to work together;
+      - fixed several algorithm errors;
