@@ -1,0 +1,80 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title><style type="text/css">
+        .auto-style1 {width: 1252px;height: 307px;}
+        .auto-style13 {text-align: center;height: 51px;}
+        .auto-style20 {height: 51px;}
+        .auto-style22 {text-align: center;height: 51px;
+            font-size: xx-large;}
+        .auto-style23 {text-align: center;height: 52px;}
+        .auto-style24 {text-align: center;height: 51px;width: 121px;}
+    </style></head>
+<body><asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+    <form id="form1" runat="server">
+        <table class="auto-style1" border="1" borderColor="black">
+            <tr><td class="auto-style22" colspan="4">青岛理工大学人事管理系统</td>
+            </tr>
+            <tr>
+                <td class="auto-style24">姓名:</td>
+                <td class="auto-style20">
+                    <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="姓名不能为空" ControlToValidate="TextBox3" Display="Dynamic"></asp:RequiredFieldValidator>
+                </td>
+                <td class="auto-style13">性别:</td>
+                <td class="auto-style20">
+                    <div>
+                        <asp:CheckBox ID="CheckBox1" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="男" />
+&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:CheckBox ID="CheckBox2" runat="server" Text="女" />
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style24">年龄:</td>
+                <td class="auto-style20">
+                    <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+                    <asp:RangeValidator ID="RangeValidator1" runat="server" ErrorMessage="请输入0-110范围内的年龄" ControlToValidate="TextBox4" Display="Dynamic" MaximumValue="100" MinimumValue="0" Type="Integer"></asp:RangeValidator>
+                </td>
+                <td class="auto-style13">部门:</td>
+                <td class="auto-style20">
+                    <asp:DropDownList ID="DropDownList1" runat="server">
+                        <asp:ListItem>软件工程</asp:ListItem>
+                        <asp:ListItem>计算机科学与技术</asp:ListItem>
+                    </asp:DropDownList>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style24">工资:</td>
+                <td class="auto-style20">
+                    <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+                </td>
+                <td class="auto-style13">民族:</td>
+                <td class="auto-style20">
+                    <asp:DropDownList ID="DropDownList2" runat="server">
+                        <asp:ListItem>汉族</asp:ListItem>
+                        <asp:ListItem>维吾尔族</asp:ListItem>
+                    </asp:DropDownList>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style24">备注:</td>
+                <td class="auto-style20" colspan="3">
+                    <asp:TextBox ID="TextBox6" runat="server" Height="155px" Width="996px" TextMode="MultiLine"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style23" colspan="4">
+                    <asp:Button ID="Button1" runat="server" Height="55px" Text="添加" Width="97px" OnClick="Button1_Click" />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="Button2" runat="server" Height="55px" Text="取消" Width="97px" OnClick="Button2_Click" />
+                </td>
+            </tr>
+        </table>
+    </form>
+    </body>
+</html>
