@@ -1,0 +1,78 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master2.master.cs" Inherits="WebSite7.Master2" %>
+
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 630px;
+        }
+        .auto-style2 {
+            width: 156px;
+            text-align: center;
+        }
+        .auto-style3 {
+            width: 156px;
+            height: 20px;
+        }
+        .auto-style7 {
+            color: #FF0066;
+        }
+        .auto-style8 {
+            color: #FF0066;
+            text-decoration: underline;
+        }
+        .auto-style9 {
+            width: 156px;
+            height: 15px;
+        }
+    </style>
+    </head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <table class="auto-style1" align="center">
+            <tr>
+                <td class="auto-style9"><span style="font-size:10.5pt;mso-bidi-font-size:10.0pt;
+font-family:宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:
+&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;mso-ansi-language:
+EN-US;mso-fareast-language:ZH-CN;mso-bidi-language:HE; text-align: center;" class="auto-style8"><strong>标题栏</strong></span><strong><asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click" CssClass="auto-style7">返回正常样式</asp:LinkButton>
+                    </strong>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style2">
+                    <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal">
+                        <Items>
+                            <asp:MenuItem NavigateUrl="Index.aspx" Text="主页" Value="主页"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="About.aspx" Text="关于" Value="关于"></asp:MenuItem>
+                        </Items>
+                    </asp:Menu>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style2">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        <p>
+                            <span style="font-size:10.5pt;mso-bidi-font-size:10.0pt;
+font-family:宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:
+&quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;;mso-ansi-language:
+EN-US;mso-fareast-language:ZH-CN;mso-bidi-language:HE">该网站是关于[<asp:Label ID="Label1" runat="server" Text="Label1"></asp:Label>]</span></p>
+                    </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style3">版权信息2015-2020</td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>

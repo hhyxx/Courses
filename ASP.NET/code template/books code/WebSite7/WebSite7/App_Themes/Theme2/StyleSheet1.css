@@ -1,0 +1,12 @@
+﻿.style1   /*  用于修饰表格 */ 
+{
+    width: 200px;
+    border-collapse: collapse;
+    border: 1px solid #800080;
+}
+.style2   /*  用于修饰单元格 */
+{
+    font-family: 幼圆;
+    font-size: large;
+    font-weight: bold;
+}
