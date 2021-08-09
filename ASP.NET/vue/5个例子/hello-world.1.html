@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Vue入门与实例</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <div id="app">
+    <!--
+      {{ }} 表示一个插值表达式，
+      可以插入任意的数值，例如字符串，在script语句块中的变量，函数
+    -->
+    <h1>{{ message }}</h1> 
+    <h1>{{ getContent() }}</h1> 
+  </div>  
+
+
+  <script type="text/javascript" src="./../vue.1.0.26.js"></script>
+  <script type="text/javascript">
+  	var vm = new Vue({ // 一个Vue实例
+		  el : '#app', // element id
+		  data: {  // data为一个对象，message 为其中的一个字符串变量
+
+		    message : 'Hello world, I am Vue.js'
+		  },
+      methods:{
+        // 方法集合
+        getContent(){
+          return
+        }
+      }
+		});
+
+    console.log();// 输出操作
+
+    vm.message = 'Hello world'
+  </script>
+</body>
+</html>
